@@ -11,14 +11,14 @@ public class Thor extends Hero {
 
     @Override
     public void applySuperPower(Boss boss, Hero[] heroes) {
-        int stun = RPG_Game.random.nextInt(15);
+        boolean stun = RPG_Game.random.nextBoolean();
         for (int i = 0; i < heroes.length; i++) {
             if (this.getHealth() > 0) {
-                if (stun > 8) {
+                if (stun) {
                     boss.setDamage(boss.getDamage() - boss.getDamage());
-                    System.out.println("босс стан");
+                    System.out.println("Boss был оглушен");
                     break;
-                } else if (stun < 8){
+                } else {
                     boss.setDamage(50);
                 }
             }
